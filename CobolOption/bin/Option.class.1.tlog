@@ -1,0 +1,11 @@
+#"C:\Program Files (x86)\Micro Focus\Enterprise Developer\bin64\cobol.exe" C:\Workspace\runtime-ED-R17-2\CobolOption\src\com\microfocus\cobol\function\Option.cbl USEC:\Workspace\runtime-ED-R17-2\CobolOption\bin\mfant4738813259065149837.dir ; ;
+^C:\Workspace\runtime-ED-R17-2\CobolOption\src\com\microfocus\cobol\function\Option.cbl
+-C:\Workspace\runtime-ED-R17-2\CobolOption\src\com\microfocus\cobol\function\Option.cbl
+!C:\Workspace\runtime-ED-R17-2\CobolOption\src\com\microfocus\cobol\function\MapFunction.cbl
++C:\Workspace\runtime-ED-R17-2\CobolOption\src\com\microfocus\cobol\function\MapFunction.cbl
+-C:\Workspace\runtime-ED-R17-2\CobolOption\src\com\microfocus\cobol\function\MapFunction.cbl
+!C:\Workspace\runtime-ED-R17-2\CobolOption\src\com\microfocus\cobol\function\FlatMapFunction.cbl
++C:\Workspace\runtime-ED-R17-2\CobolOption\src\com\microfocus\cobol\function\FlatMapFunction.cbl
+-C:\Workspace\runtime-ED-R17-2\CobolOption\src\com\microfocus\cobol\function\FlatMapFunction.cbl
+!C:\Workspace\runtime-ED-R17-2\CobolOption\src\com\microfocus\cobol\function\Predicate.cbl
++C:\Workspace\runtime-ED-R17-2\CobolOption\src\com\microfocus\cobol\function\Predicate.cbl
