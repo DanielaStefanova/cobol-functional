@@ -5,51 +5,51 @@
 
        working-storage section.
 
-       01 #NONE type None[T] public static value new type None[T]().
+       01 #NONE type None public static value new type None().
 
        method-id new private.
        end method.
 
-       method-id map using U abstract.
-       procedure division using by value mapper as type MapFunction
+       method-id map using T, U public abstract.
+       procedure division using by value mapper as type Function[T, U]
                       returning return-value as type Option[U].
        end method.
 
-       method-id flatMap using U abstract.
-       procedure division using by value mapper as type FlatMapFunction
+       method-id flatMap using T, U public abstract.
+       procedure division using by value mapper as type Function[T, type Option[U]]
                       returning return-value as type Option[U].
        end method.
 
-       method-id filter using T abstract.
-       procedure division using by value predicate as type Predicate
+       method-id filter using T public abstract.
+       procedure division using by value predicate as type Predicate[T]
                       returning return-value as type Option[T].
        end method.
 
-       method-id getOrElse using T abstract.
+       method-id getOrElse using T public abstract.
        procedure division using by value def as T
                       returning return-value as T.
        end method.
 
-       method-id isDefined abstract.
+       method-id isDefined public abstract.
        procedure division returning return-value as condition-value.
        end method.
 
        method-id some-value using T static.
        procedure division using by value val as T
-                      returning return-value as type Some[T].
+                      returning return-value as type Option[T].
            if val = null
                raise new NullPointerException()
            else
-               set return-value to new type Some[T](val)
+               set return-value to new type Some(val)
            end-if
        end method.
 
        method-id none-value using T static.
-       procedure division returning return-value as type None[T].
+       procedure division returning return-value as type Option[T].
            set return-value to #NONE
        end method.
 
-       method-id option using T static.
+       method-id ooption using T public static.
        procedure division using by value val as T
                       returning return-value as type Option[T].
            if val = null
@@ -62,30 +62,30 @@
       *>> <summary>
       *>> Class None
       *>> </summary>
-       class-id None using T final
+       class-id None final
            inherits type Option[T].
 
        method-id new public.
        end method.
 
-       method-id map using U override.
-       procedure division using by value mapper as type MapFunction
+       method-id map using T, U override.
+       procedure division using by value mapper as type Function[T, U]
                       returning return-value as type Option[U].
 
-           set return-value to #NONE
+           set return-value to type Option[T]::none-value()
 
        end method.
 
-       method-id flatMap using U override.
-       procedure division using by value mapper as type FlatMapFunction
+       method-id flatMap using T, U override.
+       procedure division using by value mapper as type Function[T, type Option[U]]
                       returning return-value as type Option[U].
 
-           set return-value to #NONE
+           set return-value to type Option[T]::none-value()
 
        end method.
 
        method-id filter using T override.
-       procedure division using by value predicate as type Predicate
+       procedure division using by value predicate as type Predicate[T]
                       returning return-value as type Option[T].
 
            set return-value to #NONE
@@ -112,7 +112,7 @@
       *>> <summary>
       *>> Class Some
       *>> </summary>
-       class-id Some using T final
+       class-id Some final
            inherits type Option[T].
 
        01 #value T.
@@ -124,17 +124,17 @@
 
        end method.
 
-       method-id map using U override.
-       procedure division using by value mapper as type MapFunction
+       method-id map using T, U override.
+       procedure division using by value mapper as type Function[T, U]
                       returning return-value as type Option[U].
 
            declare mapped = run mapper(#value)
-           set return-value to type Option[T]::some-value(mapped) as type Option[U]
+           set return-value to type Option[T]::some-value(mapped)
 
        end method.
 
-       method-id flatMap using U override.
-       procedure division using by value mapper as type FlatMapFunction
+       method-id flatMap using T, U override.
+       procedure division using by value mapper as type Function[T, type Option[U]]
                       returning return-value as type Option[U].
 
             set return-value to run mapper(#value)
@@ -142,11 +142,12 @@
        end method.
 
        method-id filter using T override.
-       procedure division using by value predicate as type Predicate
+       procedure division using by value predicate as type Predicate[T]
                       returning return-value as type Option[T].
 
-           if run predicate(#value)
-               set return-value to self
+           declare result = run predicate(#value)
+           if true
+               set return-value to self 
            else
                set return-value to type Option::none-value()
            end-if

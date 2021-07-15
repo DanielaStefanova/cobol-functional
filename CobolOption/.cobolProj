@@ -3,6 +3,7 @@
    <settings xsi:type="projectSettingsContainer">
       <build-precedence-paths xsi:type="buildPrecedenceSettings">
          <path enabled="true" name="/CobolOption/src" type="mfpath"/>
+         <path enabled="true" name="/CobolOption/test" type="mfpath"/>
       </build-precedence-paths>
       <dependent-projects xsi:type="dependentProjectsSettings"/>
       <copybook-paths xsi:type="copybookPathsSettings">
@@ -12,6 +13,11 @@
          <path enabled="true" name="/CobolOption/src/com/microfocus" type="mfpath"/>
          <path enabled="true" name="/CobolOption/src/com/microfocus/cobol" type="mfpath"/>
          <path enabled="true" name="/CobolOption/src/com/microfocus/cobol/function" type="mfpath"/>
+         <path enabled="true" name="/CobolOption/test" type="mfpath"/>
+         <path enabled="true" name="/CobolOption/test/com" type="mfpath"/>
+         <path enabled="true" name="/CobolOption/test/com/microfocus" type="mfpath"/>
+         <path enabled="true" name="/CobolOption/test/com/microfocus/cobol" type="mfpath"/>
+         <path enabled="true" name="/CobolOption/test/com/microfocus/cobol/function" type="mfpath"/>
       </copybook-paths>
       <configurations default="New Configuration" linkedWith="2017" xsi:type="buildConfigurationsContainer">
          <configuration description="New Configuration" type="jvm" xsi:type="cobolBuildConfiguration">
@@ -23,14 +29,17 @@
    <files xsi:type="projectFileStore">
       <filetype type="cobol" xsi:type="cobolFileContainer">
          <file compile="true" path="src/com/microfocus/cobol/function/Option.cbl" xsi:type="cobolFile"/>
-         <file compile="true" path="src/com/microfocus/cobol/function/MapFunction.cbl" xsi:type="cobolFile"/>
-         <file compile="true" path="src/com/microfocus/cobol/function/FlatMapFunction.cbl" xsi:type="cobolFile"/>
          <file compile="true" path="src/com/microfocus/cobol/function/Predicate.cbl" xsi:type="cobolFile"/>
+         <file compile="true" path="src/com/microfocus/cobol/function/Either.cbl" xsi:type="cobolFile"/>
+         <file compile="true" path="src/com/microfocus/cobol/function/Supplier.cbl" xsi:type="cobolFile"/>
+         <file compile="true" path="src/com/microfocus/cobol/function/Function.cbl" xsi:type="cobolFile"/>
+         <file compile="true" path="test/com/microfocus/cobol/function/TestOption.cbl" xsi:type="cobolFile"/>
       </filetype>
       <filetype type="cobol.copybook" xsi:type="cobolFileContainer"/>
       <folders xsi:type="cobolFolderContainer">
          <folder compile="true" path="src/com/microfocus/cobol/function" xsi:type="cobolFolder"/>
          <folder compile="true" path="bin/com/microfocus" xsi:type="cobolFolder"/>
+         <folder compile="true" path="test/com/microfocus/cobol/function" xsi:type="cobolFolder"/>
          <folder compile="true" path="bin/com/microfocus/cobol" xsi:type="cobolFolder"/>
          <folder compile="true" path="bin/com/microfocus/cobol/references/com/microfocus/cobol" xsi:type="cobolFolder"/>
          <folder compile="true" path="bin/com/microfocus/cobol/references/com/microfocus/cobol/function" xsi:type="cobolFolder"/>
